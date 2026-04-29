@@ -14,6 +14,7 @@ import {
   Message,
 } from "@copilotkit/runtime-client-gql";
 import { randomId } from "@copilotkit/shared";
+import type { ComponentProps } from "react";
 
 const testMessages = [
   {
@@ -44,7 +45,7 @@ export default function PanelPage() {
     searchParams.get("runtimeUrl") ||
     `/api/copilotkit?serviceAdapter=${serviceAdapter}`;
   const publicApiKey = searchParams.get("publicApiKey");
-  const copilotKitProps: Partial<React.ComponentProps<typeof CopilotKit>> = {
+  const copilotKitProps: Partial<ComponentProps<typeof CopilotKit>> = {
     runtimeUrl,
     publicApiKey: publicApiKey || undefined,
   };

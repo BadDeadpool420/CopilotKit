@@ -10,7 +10,7 @@ import {
   CopilotTextarea,
   HTMLCopilotTextAreaElement,
 } from "@copilotkit/react-textarea";
-import { useRef } from "react";
+import { useRef, type ComponentProps } from "react";
 import { useStateWithLocalStorage } from "../utils";
 import { useSearchParams } from "next/navigation";
 
@@ -22,7 +22,7 @@ export default function CopilotTextareaDemo() {
     `/api/copilotkit?serviceAdapter=${serviceAdapter}`;
   const publicApiKey = searchParams.get("publicApiKey");
 
-  const copilotKitProps: Partial<React.ComponentProps<typeof CopilotKit>> = {
+  const copilotKitProps: Partial<ComponentProps<typeof CopilotKit>> = {
     runtimeUrl,
     publicApiKey: publicApiKey || undefined,
   };

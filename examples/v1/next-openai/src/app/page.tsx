@@ -4,6 +4,7 @@ import { CopilotKit } from "@copilotkit/react-core";
 import { CopilotSidebar } from "@copilotkit/react-ui";
 import { VacationList } from "./components/vacation-list";
 import { useSearchParams } from "next/navigation";
+import type { ComponentProps } from "react";
 
 export default function WaterBnb() {
   const searchParams = useSearchParams();
@@ -13,7 +14,7 @@ export default function WaterBnb() {
     searchParams.get("runtimeUrl") ||
     `/api/copilotkit?serviceAdapter=${serviceAdapter}`;
   const publicApiKey = searchParams.get("publicApiKey");
-  const copilotKitProps: Partial<React.ComponentProps<typeof CopilotKit>> = {
+  const copilotKitProps: Partial<ComponentProps<typeof CopilotKit>> = {
     runtimeUrl,
     publicApiKey: publicApiKey || undefined,
     showDevConsole: true,
