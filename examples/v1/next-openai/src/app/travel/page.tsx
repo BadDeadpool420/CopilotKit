@@ -3,7 +3,7 @@
 import { CopilotChat } from "@copilotkit/react-ui";
 import "./styles.css";
 import { CopilotKit, useCopilotAction } from "@copilotkit/react-core";
-import { useState } from "react";
+import { useState, type ComponentProps } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 
@@ -20,7 +20,7 @@ export default function PanelPage() {
     searchParams.get("runtimeUrl") ||
     `/api/copilotkit?serviceAdapter=${serviceAdapter}`;
   const publicApiKey = searchParams.get("publicApiKey");
-  const copilotKitProps: Partial<React.ComponentProps<typeof CopilotKit>> = {
+  const copilotKitProps: Partial<ComponentProps<typeof CopilotKit>> = {
     runtimeUrl,
     publicApiKey: publicApiKey || undefined,
   };

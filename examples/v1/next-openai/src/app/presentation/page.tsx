@@ -4,7 +4,7 @@ import { CopilotKit } from "@copilotkit/react-core";
 import { CopilotKitCSSProperties, CopilotSidebar } from "@copilotkit/react-ui";
 import "./styles.css";
 import { Presentation } from "./components/main/Presentation";
-import { useState } from "react";
+import { useState, type ComponentProps } from "react";
 import { useSearchParams } from "next/navigation";
 
 export default function AIPresentation() {
@@ -17,7 +17,7 @@ export default function AIPresentation() {
     `/api/copilotkit?serviceAdapter=${serviceAdapter}`;
   const publicApiKey = searchParams.get("publicApiKey");
 
-  const copilotKitProps: Partial<React.ComponentProps<typeof CopilotKit>> = {
+  const copilotKitProps: Partial<ComponentProps<typeof CopilotKit>> = {
     transcribeAudioUrl: "/api/transcribe",
     textToSpeechUrl: "/api/tts",
     runtimeUrl,

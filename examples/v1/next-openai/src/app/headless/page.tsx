@@ -14,7 +14,7 @@ import {
 import { randomId } from "@copilotkit/shared";
 import { AnimatedMarkdown } from "flowtoken";
 import { useSearchParams } from "next/navigation";
-import { useCallback, useState, useRef, useEffect } from "react";
+import { useCallback, useState, useRef, useEffect, type ComponentProps } from "react";
 import { StickToBottom, useStickToBottomContext } from "use-stick-to-bottom";
 import "flowtoken/dist/styles.css";
 
@@ -74,7 +74,7 @@ export default function PanelPage() {
     `/api/copilotkit?serviceAdapter=${serviceAdapter}`;
   const publicApiKey = searchParams.get("publicApiKey");
   const publicLicenseKey = searchParams.get("publicLicenseKey");
-  const copilotKitProps: Partial<React.ComponentProps<typeof CopilotKit>> = {
+  const copilotKitProps: Partial<ComponentProps<typeof CopilotKit>> = {
     runtimeUrl,
     showDevConsole: true,
     publicApiKey: publicApiKey || undefined,
